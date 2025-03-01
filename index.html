@@ -2,130 +2,82 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teszt Weboldal</title>
+    <title>Teszt Oldal</title>
     <style>
         body {
-            background-color: white;
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
         }
-        nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+        .navbar {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
         }
-        nav a {
-            color: white;
+        .navbar a {
             margin: 0 15px;
             text-decoration: none;
-            font-size: 18px;
+            color: black;
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .content {
+        .page {
+            display: none;
             padding: 20px;
         }
-        .hidden {
-            display: none; /* Elrejti a tartalmat */
+        .page.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="#home">Főoldal</a>
-        <a href="#treatments">Kezelések</a>
-    </nav>
-
-    <!-- Főoldal tartalma -->
-    <div id="home" class="content">
-        <h1>Üdvözöljük a Teszt Weboldalon!</h1>
-        <p>Én egy teszt oldal vagyok. Itt található néhány információ.</p>
+    <div class="navbar">
+        <a href="#fooldal" onclick="showPage('fooldal')">Főoldal</a>
+        <a href="#kezelések" onclick="showPage('kezelések')">Kezelések</a>
+        <a href="#implantatumok" onclick="showPage('implantatumok')">Implantátumok</a>
     </div>
 
-    <!-- Kezelések oldal tartalma -->
-    <div id="treatments" class="content hidden">
+    <div id="fooldal" class="page active">
+        <h1>Teszt Oldal</h1>
+        <p>Én vagyok a főoldal</p>
+    </div>
+
+    <div id="kezelések" class="page">
         <h1>Kezelések</h1>
-        <p>Itt megtekintheted a kezeléseinket.</p>
+        <p>Itt megismerheted a kezeléseinket</p>
     </div>
 
-    <!-- Voiceflow Chat Widget Script -->
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    assistant: {
-                        stylesheet: "https://github.com/szileczkisoma/mindentment/blob/main/mindentment.css"
-                    }
-                }).then(() => {
-                    // Opcionális: Ha a "Kezelések" oldalon automatikusan meg akarod nyitni a widgetet
-                    if (window.location.hash === '#treatments') {
-                        setTimeout(() => {
-                            window.voiceflow.chat.open();
-                        }, 1000); // 1 másodperc késleltetés a betöltés után
-                    }
-                });
-            };
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
-            v.type = "text/javascript";
-            s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
+    <div id="implantatumok" class="page">
+        <h1>Implantátumok</h1>
+        <p>Itt megismerheted implantátumainkat</p>
+    </div>
 
-    <!-- Tartalomváltás JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const links = document.querySelectorAll('nav a');
-            const pages = document.querySelectorAll('.content');
-
-            // Tartalomváltás a linkekre kattintva
-            links.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    // Elrejtjük az összes tartalmat
-                    pages.forEach(page => {
-                        page.classList.add('hidden');
-                    });
-
-                    // Megjelenítjük a célzott tartalmat
-                    const targetPage = document.getElementById(this.getAttribute('href').substring(1));
-                    if (targetPage) {
-                        targetPage.classList.remove('hidden');
-                    }
-
-                    // Frissítjük az URL hash-t
-                    window.location.hash = this.getAttribute('href').substring(1);
-                });
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
             });
-
-            // Betöltéskor a hash alapján választunk oldalt
-            function loadPageFromHash() {
-                pages.forEach(page => {
-                    page.classList.add('hidden');
-                });
-
-                const hash = window.location.hash.substring(1);
-                const targetPage = document.getElementById(hash || 'home');
-                if (targetPage) {
-                    targetPage.classList.remove('hidden');
-                }
-            }
-
-            // Kezdeti oldal betöltése
-            loadPageFromHash();
-
-            // Hash változás figyelése (pl. vissza gomb esetén)
-            window.addEventListener('hashchange', loadPageFromHash);
-        });
+            document.getElementById(pageId).classList.add('active');
+        }
     </script>
 
+    <!-- Voiceflow Chatbot szkript -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              assistant: {
+                stylesheet: "https://github.com/szileczkisoma/mindentment/blob/main/mindentment.css"
+              }
+            });
+          };
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 </body>
 </html>
