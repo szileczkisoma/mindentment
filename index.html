@@ -28,92 +28,56 @@
         .content {
             padding: 20px;
         }
-        .hidden {
-            display: none; /* Elrejti a tartalmat */
-        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" data-page="home">Főoldal</a>
-        <a href="#" data-page="treatments">Kezelések</a>
+        <a href="#home">Főoldal</a>
+        <a href="#treatments">Kezelések</a>
     </nav>
 
-    <!-- Főoldal tartalma -->
-    <div id="home" class="content">
+    <div class="content">
         <h1>Üdvözöljük a Teszt Weboldalon!</h1>
         <p>Én egy teszt oldal vagyok. Itt található néhány információ.</p>
-    </div>
-
-    <!-- Kezelések oldal tartalma -->
-    <div id="treatments" class="content hidden">
-        <h1>Kezelések</h1>
-        <p>Itt megtekintheted a kezeléseinket.</p>
+        <h2>Kezelések</h2>
+        <p>Itt bemutathatók a kezeléseink.</p>
     </div>
 
     <!-- Voiceflow Chat Widget Script -->
     <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            
-            // Dynamically inject the external CSS file
-            var cssLink = d.createElement('link');
-            cssLink.rel = 'stylesheet';
-            cssLink.href = 'https://szileczkisoma.github.io/mindentment/mindentment.css'; // Adjust the URL to where your CSS file is hosted
-            d.head.appendChild(cssLink);
+(function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    
+    // Dynamically inject the external CSS file
+    var cssLink = d.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.href = 'https://szileczkisoma.github.io/mindentment/mindentment.css'; // Adjust the URL to where your CSS file is hosted
+    d.head.appendChild(cssLink);
 
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    assistant: {
-                        // No stylesheet property here since we're using an external CSS file
-                    }
-                }).then(() => {
-                    // Modified to check for the specific GitHub Pages URL
-                    const currentUrl = window.location.href;
-                    if (currentUrl.includes('szileczkisoma.github.io/mindentment/#treatments')) {
-                        setTimeout(function() {
-                            window.voiceflow.chat.open();
-                        }, 3000);
-                    }
-                });
-            };
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
-            v.type = "text/javascript"; 
-            s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
-
-    <script>
-        // JavaScript a tartalom váltásához
-        document.addEventListener('DOMContentLoaded', function () {
-            const links = document.querySelectorAll('nav a');
-            const pages = document.querySelectorAll('.content');
-
-            links.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault(); // Megakadályozza az oldal újratöltését
-
-                    // Elrejtjük az összes oldalt
-                    pages.forEach(page => {
-                        page.classList.add('hidden');
-                    });
-
-                    // Megjelenítjük a kiválasztott oldalt
-                    const targetPage = document.getElementById(this.getAttribute('data-page'));
-                    if (targetPage) {
-                        targetPage.classList.remove('hidden');
-                    }
-                });
-            });
-
-            // Alapértelmezettként a Főoldal megjelenítése
-            document.getElementById('home').classList.remove('hidden');
-        });
-    </script>
+    v.onload = function() {
+      window.voiceflow.chat.load({
+        verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
+        url: 'https://general-runtime.voiceflow.com',
+        versionID: 'production',
+        assistant: {
+          // No stylesheet property here since we're using an external CSS file
+        }
+      }).then(() => {
+        // Modified to check for the specific GitHub Pages URL
+        const currentUrl = window.location.href;
+        if (currentUrl.includes('szileczkisoma.github.io/mindentment/#treatments')) {
+          setTimeout(function() {
+            window.voiceflow.chat.open();
+          }, 3000);
+        }
+      });
+    };
+    v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+    v.type = "text/javascript"; 
+    s.parentNode.insertBefore(v, s);
+})(document, 'script');
+</script>
 
 </body>
 </html>
