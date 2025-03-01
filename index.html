@@ -54,38 +54,23 @@
 
     <!-- Voiceflow Chat Widget Script -->
     <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            
-            // Dynamically inject the external CSS file
-            var cssLink = d.createElement('link');
-            cssLink.rel = 'stylesheet';
-            cssLink.href = 'https://github.com/szileczkisoma/mindentment/blob/main/mindentment.css'; // Adjust the URL to where your CSS file is hosted
-            d.head.appendChild(cssLink);
-
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    assistant: {
-                        // No stylesheet property here since we're using an external CSS file
-                    }
-                }).then(() => {
-                    // Modified to check for the specific GitHub Pages URL
-                    const currentUrl = window.location.href;
-                    if (currentUrl.includes('szileczkisoma.github.io/mindentment/#treatments')) {
-                        setTimeout(function() {
-                            window.voiceflow.chat.open();
-                        }, 3000);
-                    }
-                });
-            };
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
-            v.type = "text/javascript"; 
-            s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: 'PROJECT_ID' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          assistant: {
+            stylesheet: "" // link to your self-hosted stylesheet
+          }
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+      v.type = "text/javascript"; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
 
     <script>
         // JavaScript a tartalom váltásához
