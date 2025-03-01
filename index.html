@@ -15,10 +15,6 @@
             background-color: #333;
             padding: 10px;
             text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
         }
         nav a {
             color: white;
@@ -27,95 +23,54 @@
             font-size: 18px;
         }
         nav a:hover {
-            vaktext-decoration: underline;
+            text-decoration: underline;
         }
         .content {
-            padding: 60px 20px 20px; /* Felső padding a nav magassága miatt */
-        }
-        .section {
-            display: none; /* Alapból minden szekció rejtett */
-        }
-        .section.active {
-            display: block; /* Csak az aktív szekció látható */
+            padding: 20px;
         }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="#home" data-section="home">Főoldal</a>
-        <a href="#treatments" data-section="treatments">Kezelések</a>
+        <a href="#home">Főoldal</a>
+        <a href="#treatments">Kezelések</a>
     </nav>
 
     <div class="content">
-        <div id="home" class="section active">
-            <h1>Üdvözöljük a Teszt Weboldalon!</h1>
-            <p>Én egy teszt oldal vagyok. Itt található néhány információ.</p>
-        </div>
-        <div id="treatments" class="section">
-            <h1>Kezelések</h1>
-            <p>Itt bemutathatók a kezeléseink.</p>
-        </div>
+        <h1>Üdvözöljük a Teszt Weboldalon!</h1>
+        <p>Én egy teszt oldal vagyok. Itt található néhány információ.</p>
+        <h2>Kezelések</h2>
+        <p>Itt bemutathatók a kezeléseink.</p>
     </div>
 
     <!-- Voiceflow Chat Widget Script -->
     <script type="text/javascript">
         (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    assistant: {
-                        stylesheet: "data:text/css;base64,LyogSGlkZSB0aGUgc2Vjb25kIGNoaWxkICh0aGUgb3JpZ2luYWwgdGV4dCkgKi8KLnZmcmMtaGVhZGVyID4gOm50aC1jaGlsZCgyKSB7CiAgdmlzaWJpbGl0eTogaGlkZGVuOyAvKiBIaWRlIG9ubHkgdGhlIHNlY29uZCBjaGlsZCAqLwogIHBvc2l0aW9uOiByZWxhdGl2ZTsKfQoKLyogQWRkIHRoZSBuZXcgdGV4dCBpbiB0aGUgaGVhZGVyLCBwb3NpdGlvbmVkIGxvd2VyIGFuZCBzbGlnaHRseSBsZWZ0ICovCi52ZnJjLWhlYWRlcjo6YmVmb3JlIHsKICBjb250ZW50OiAiTWluZGVudE1lbnQgQUkiOwogIHZpc2liaWxpdHk6IHZpc2libGU7CiAgcG9zaXRpb246IGFic29sdXRlOwogIHRvcDogNDBweDsgLyogS2VwdCBsb3dlciAqLwogIHJpZ2h0OiAxMHB4OyAvKiBNb3ZlZCBhIGxpdHRsZSBsZWZ0ICovCiAgZm9udC1zaXplOiAyMHB4OwogIGNvbG9yOiByZ2IoMCwgMTU5LCAyMjcpOyAvKiBTYW1lIGJsdWUgYXMgYm9yZGVyIGFuZCBpY29uICovCn0KCi8qIFN0eWxlIHRoZSBsYXVuY2hlciBidXR0b24gLSBrZWVwIGRyLWJhcmF0LnBuZyAqLwoudmZyYy1sYXVuY2hlciB7CiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vd3d3Lm1pbmRlbnRtZW50Lmh1L2ZvZ2FzemF0L3VwbG9hZHNfb3B0L2RyYmFyYXQvZHItYmFyYXQucG5nJykgIWltcG9ydGFudDsKICAgIGJhY2tncm91bmQtc2l6ZTogY29udGFpbiAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdCAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7CiAgICBoZWlnaHQ6IDEwMHB4ICFpbXBvcnRhbnQ7CiAgICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YA==" // Helyettesítsd a teljes stylesheet-tel
-                    }
-                }).then(() => {
-                    // Chatbot auto-open logika
-                    function checkHashAndOpenChat() {
-                        if (window.location.hash === '#treatments') {
-                            setTimeout(function() {
-                                window.voiceflow.chat.open();
-                            }, 3000);
-                        }
-                    }
-
-                    // Ellenőrzi az oldal betöltésekor
-                    checkHashAndOpenChat();
-
-                    // Figyeli az URL hash változását
-                    window.addEventListener('hashchange', checkHashAndOpenChat);
-                });
-            };
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
-            v.type = "text/javascript";
-            s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-
-        // Menü navigáció JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('nav a');
-            const sections = document.querySelectorAll('.section');
-
-            function showSection(sectionId) {
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(sectionId).classList.add('active');
-            }
-
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const sectionId = this.getAttribute('data-section');
-                    showSection(sectionId);
-                    window.location.hash = this.getAttribute('href').substring(1); // Frissíti az URL-t
-                });
-            });
-
-            // Alapértelmezett szekció betöltése az URL hash alapján
-            const initialHash = window.location.hash.substring(1) || 'home';
-            showSection(initialHash);
-        });
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() {
+      window.voiceflow.chat.load({
+        verify: { projectID: '67b8b11d0c1f7b1c4e81852a' },
+        url: 'https://general-runtime.voiceflow.com',
+        versionID: 'production',
+        assistant: {
+          stylesheet: "data:text/css;base64,LyogSGlkZSB0aGUgc2Vjb25kIGNoaWxkICh0aGUgb3JpZ2luYWwgdGV4dCkgKi8KLnZmcmMtaGVhZGVyID4gOm50aC1jaGlsZCgyKSB7CiAgdmlzaWJpbGl0eTogaGlkZGVuOyAvKiBIaWRlIG9ubHkgdGhlIHNlY29uZCBjaGlsZCAqLwogIHBvc2l0aW9uOiByZWxhdGl2ZTsKfQoKLyogQWRkIHRoZSBuZXcgdGV4dCBpbiB0aGUgaGVhZGVyLCBwb3NpdGlvbmVkIGxvd2VyIGFuZCBzbGlnaHRseSBsZWZ0ICovCi52ZnJjLWhlYWRlcjo6YmVmb3JlIHsKICBjb250ZW50OiAiTWluZGVudE1lbnQgQUkiOwogIHZpc2liaWxpdHk6IHZpc2libGU7CiAgcG9zaXRpb246IGFic29sdXRlOwogIHRvcDogNDBweDsgLyogS2VwdCBsb3dlciAqLwogIHJpZ2h0OiAxMHB4OyAvKiBNb3ZlZCBhIGxpdHRsZSBsZWZ0ICovCiAgZm9udC1zaXplOiAyMHB4OwogIGNvbG9yOiByZ2IoMCwgMTU5LCAyMjcpOyAvKiBTYW1lIGJsdWUgYXMgYm9yZGVyIGFuZCBpY29uICovCn0KCi8qIFN0eWxlIHRoZSBsYXVuY2hlciBidXR0b24gLSBrZWVwIGRyLWJhcmF0LnBuZyAqLwoudmZyYy1sYXVuY2hlciB7CiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vd3d3Lm1pbmRlbnRtZW50Lmh1L2ZvZ2FzemF0L3VwbG9hZHNfb3B0L2RyYmFyYXQvZHItYmFyYXQucG5nJykgIWltcG9ydGFudDsKICAgIGJhY2tncm91bmQtc2l6ZTogY29udGFpbiAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdCAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7CiAgICBoZWlnaHQ6IDEwMHB4ICFpbXBvcnRhbnQ7CiAgICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50Owp9CgovKiBTdHlsZSB0aGUgaGVhZGVyIGNvbnRhaW5lciAqLwoudmZyYy1oZWFkZXIgewogICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGUgIWltcG9ydGFudDsKICAgIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCByZ2IoMCwgMTU5LCAyMjcpICFpbXBvcnRhbnQ7CiAgICBoZWlnaHQ6IDgwcHggIWltcG9ydGFudDsKICAgIGRpc3BsYXk6IGZsZXggIWltcG9ydGFudDsKICAgIGFsaWduLWl0ZW1zOiBjZW50ZXIgIWltcG9ydGFudDsKfQoKLyogU3R5bGUgdGhlIGF2YXRhciBpbiB0aGUgaGVhZGVyIC0ga2VlcCBsb2dvLW1kbS1uYWd5LnBuZyAqLwoudmZyYy1oZWFkZXIgLnZmcmMtYXZhdGFyIHsKICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaHR0cHM6Ly93d3cubWluZGVudG1lbnQuaHUvZm9nYXN6YXQvdXBsb2Fkc19vcHQvaW1hZ2VzL2xvZ28tbWRtLW5hZ3kucG5nJykgIWltcG9ydGFudDsKICAgIGJhY2tncm91bmQtc2l6ZTogY29udGFpbiAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdCAhaW1wb3J0YW50OwogICAgd2lkdGg6IDE0MHB4ICFpbXBvcnRhbnQ7IC8qIExhcmdlciBzaXplICovCiAgICBoZWlnaHQ6IDE0MHB4ICFpbXBvcnRhbnQ7IC8qIExhcmdlciBzaXplICovCiAgICBib3JkZXItcmFkaXVzOiAwICFpbXBvcnRhbnQ7CiAgICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7Cn0KCi8qIFN0eWxlIHRoZSBjaGF0IGNvbnRhaW5lciB3aXRoIGJhY2tncm91bmQgY29sb3IgKi8KLnZmcmMtY2hhdCB7CiAgICBib3JkZXI6IDNweCBzb2xpZCByZ2IoMCwgMTU5LCAyMjcpICFpbXBvcnRhbnQ7CiAgICBib3JkZXItcmFkaXVzOiAxMHB4ICFpbXBvcnRhbnQ7CiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94ICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjQ0LCAyNDQsIDI0NCkgIWltcG9ydGFudDsgLyogTGlnaHQgZ3JleSBiYWNrZ3JvdW5kICovCn0KCi8qIFN0eWxlIHRoZSBzY3JvbGxiYXIgdHJhY2sgZm9yIHRoZSBvdmVyYWxsIGNoYXQgd2lkZ2V0ICovCi52b2ljZWZsb3ctY2hhdDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sgewogICAgYmFja2dyb3VuZDogcmdiKDI0NCwgMjQ0LCAyNDQpICFpbXBvcnRhbnQ7IC8qIE1hdGNoIGNoYXQgYmFja2dyb3VuZCAqLwp9CgovKiBTdHlsZSB0aGUgc3RhbmRhbG9uZSBhdmF0YXIgLSBleGNsdWRlIHN5c3RlbSByZXNwb25zZSBhbmQgaGVhZGVyIGF2YXRhciAqLwoudmZyYy1hdmF0YXI6bm90KC52ZnJjLXN5c3RlbS1yZXNwb25zZSAudmZyYy1hdmF0YXIpOm5vdCgudmZyYy1oZWFkZXIgLnZmcmMtYXZhdGFyKSB7CiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vd3d3Lm1pbmRlbnRtZW50Lmh1L2ZvZ2FzemF0L3VwbG9hZHNfb3B0L2RyYmFyYXQvZHItYmFyYXQucG5nJykgIWltcG9ydGFudDsKICAgIGJhY2tncm91bmQtc2l6ZTogMTkwcHggIWltcG9ydGFudDsgLyogU21hbGxlciBpbWFnZSBzaXplICovCiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0ICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgdG9wICFpbXBvcnRhbnQ7IC8qIFVwcGVyIHRoaXJkIGluIGNvbnRhaW5lciAqLwogICAgYm9yZGVyLXJhZGl1czogMCAhaW1wb3J0YW50OwogICAgd2lkdGg6IDI1MHB4ICFpbXBvcnRhbnQ7IC8qIEluY3JlYXNlZCB3aWR0aCAqLwogICAgaGVpZ2h0OiAxMjBweCAhaW1wb3J0YW50OyAvKiBJbmNyZWFzZWQgaGVpZ2h0ICovCn0KCi8qIFN0eWxlIHRoZSBhdmF0YXIgaW4gc3lzdGVtIHJlc3BvbnNlcyBzZXBhcmF0ZWx5ICovCi52ZnJjLXN5c3RlbS1yZXNwb25zZSAudmZyYy1hdmF0YXIgewogICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCdodHRwczovL3d3dy5taW5kZW50bWVudC5odS9mb2dhc3phdC91cGxvYWRzX29wdC9kcmJhcmF0L2RyLWJhcmF0LnBuZycpICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLXNpemU6IDUwcHggIWltcG9ydGFudDsgLyogU2xpZ2h0bHkgYmlnZ2VyICovCiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0ICFpbXBvcnRhbnQ7CiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgdG9wICFpbXBvcnRhbnQ7IC8qIFVwcGVyIHRoaXJkIGluIGNvbnRhaW5lciAqLwogICAgYm9yZGVyLXJhZGl1czogMCAhaW1wb3J0YW50Owp9CgovKiBTdHlsZSB0aGUgaWNvbiAqLwoudmZyYy1pY29uIHsKICAgIGNvbG9yOiByZ2IoMCwgMTU5LCAyMjcpICFpbXBvcnRhbnQ7CiAgICBtYXJnaW4tdG9wOiAtNDBweCAhaW1wb3J0YW50OwogICAgbWFyZ2luLXJpZ2h0OiAtMjVweCAhaW1wb3J0YW50Owp9CgovKiBTdHlsZSB0aGUgYXNzaXN0YW50IGluZm8gdGl0bGUgLSBvdmVycmlkZSB3aXRoICJEci4gQmFyw6F0IiAqLwoudmZyYy1hc3Npc3RhbnQtaW5mby0tdGl0bGUgewogICAgdmlzaWJpbGl0eTogaGlkZGVuOyAvKiBIaWRlIG9yaWdpbmFsIHRleHQgKi8KICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKfQoKLnZmcmMtYXNzaXN0YW50LWluZm8tLXRpdGxlOjpiZWZvcmUgewogICAgY29udGVudDogIkRyLiBCYXLDoXQiOyAvKiBOZXcgdGV4dCAqLwogICAgdmlzaWJpbGl0eTogdmlzaWJsZTsKICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgIHRvcDogMDsKICAgIGxlZnQ6IDUwJTsgLyogQ2VudGVyZWQgKi8KICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKTsgLyogQ2VudGVyIGFsaWduIGhvcml6b250YWxseSAqLwogICAgY29sb3I6IHJnYigwLCAxNTksIDIyNyk7IC8qIFNhbWUgYmx1ZSBhcyBvdGhlcnMgKi8KICAgIGZvbnQtc2l6ZTogMjBweDsgLyogTWF0Y2ggb3RoZXIgdGV4dCBzaXplICovCn0KCi8qIFN0eWxlIHRoZSBhc3Npc3RhbnQgcmVzcG9uc2UgbWVzc2FnZSB0ZXh0Ym94ICovCi52ZnJjLXN5c3RlbS1yZXNwb25zZSAudmZyYy1tZXNzYWdlIHsKICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigwLCAxNTksIDIyNykgIWltcG9ydGFudDsgLyogU2FtZSBibHVlICovCiAgICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OyAvKiBXaGl0ZSB0ZXh0ICovCn0KCi8qIFN0eWxlIHRoZSB1c2VyIHJlc3BvbnNlIG1lc3NhZ2UgdGV4dGJveCAqLwoudmZyYy11c2VyLXJlc3BvbnNlIC52ZnJjLW1lc3NhZ2UgewogICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OyAvKiBXaGl0ZSAqLwogICAgY29sb3I6ICMwMDAwMDAgIWltcG9ydGFudDsgLyogQmxhY2sgdGV4dCAqLwp9"
+        }
+      }).then(() => {
+        // Modified to check for the specific GitHub Pages URL
+        const currentUrl = window.location.href;
+        if (currentUrl.includes('szileczkisoma.github.io/mindentment/#treatments')) {
+          setTimeout(function() {
+            window.voiceflow.chat.open();
+          }, 3000);
+        }
+      });
+    };
+    v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+    v.type = "text/javascript"; 
+    s.parentNode.insertBefore(v, s);
+})(document, 'script');
     </script>
+
 </body>
 </html>
