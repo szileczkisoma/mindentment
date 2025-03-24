@@ -1,21 +1,18 @@
-/* Hide the second child (the original text) */
 .vfrc-header > :nth-child(2) {
-  visibility: hidden; /* Hide only the second child */
+  visibility: hidden;
   position: relative;
 }
 
-/* Add the new text in the header, positioned lower and slightly left */
 .vfrc-header::before {
   content: "MindentMent AI";
   visibility: visible;
   position: absolute;
-  top: 40px; /* Kept lower */
-  right: 10px; /* Moved a little left */
+  top: 40px;
+  right: 10px;
   font-size: 20px;
-  color: rgb(0, 159, 227); /* Same blue as border and icon */
+  color: rgb(0, 159, 227);
 }
 
-/* Style the launcher button - keep dr-barat.png */
 .vfrc-launcher {
     background-image: url('https://www.mindentment.hu/fogaszat/uploads_opt/drbarat/dr-barat.png') !important;
     background-size: contain !important;
@@ -27,7 +24,6 @@
     display: block !important;
 }
 
-/* Style the header container */
 .vfrc-header {
     background-color: white !important;
     border-bottom: 3px solid rgb(0, 159, 227) !important;
@@ -36,84 +32,75 @@
     align-items: center !important;
 }
 
-/* Style the avatar in the header - keep logo-mdm-nagy.png */
 .vfrc-header .vfrc-avatar {
     background-image: url('https://www.mindentment.hu/fogaszat/uploads_opt/images/logo-mdm-nagy.png') !important;
     background-size: contain !important;
     background-position: center !important;
     background-color: transparent !important;
     background-repeat: no-repeat !important;
-    width: 140px !important; /* Larger size */
-    height: 140px !important; /* Larger size */
+    width: 140px !important;
+    height: 140px !important;
     border-radius: 0 !important;
     box-shadow: none !important;
 }
 
-/* Style the chat container with background color */
 .vfrc-chat {
     border: 3px solid rgb(0, 159, 227) !important;
     border-radius: 10px !important;
     box-sizing: border-box !important;
-    background-color: rgb(244, 244, 244) !important; /* Light grey background */
+    background-color: rgb(244, 244, 244) !important;
 }
 
-/* Style the scrollbar track for the overall chat widget */
 .voiceflow-chat::-webkit-scrollbar-track {
-    background: rgb(244, 244, 244) !important; /* Match chat background */
+    background: rgb(244, 244, 244) !important;
 }
 
-/* Style the standalone avatar - exclude system response and header avatar */
 .vfrc-avatar:not(.vfrc-system-response .vfrc-avatar):not(.vfrc-header .vfrc-avatar) {
     background-image: url('https://www.mindentment.hu/fogaszat/uploads_opt/drbarat/dr-barat.png') !important;
-    background-size: 190px !important; /* Smaller image size */
+    background-size: 190px !important;
     background-repeat: no-repeat !important;
-    background-position: center top !important; /* Upper third in container */
+    background-position: center top !important;
     border-radius: 0 !important;
-    width: 250px !important; /* Increased width */
-    height: 120px !important; /* Increased height */
+    width: 250px !important;
+    height: 120px !important;
 }
 
-/* Style the avatar in system responses separately */
 .vfrc-system-response .vfrc-avatar {
     background-image: url('https://www.mindentment.hu/fogaszat/uploads_opt/drbarat/dr-barat.png') !important;
-    background-size: 50px !important; /* Slightly bigger */
+    background-size: 50px !important;
     background-repeat: no-repeat !important;
-    background-position: center top !important; /* Upper third in container */
+    background-position: center top !important;
     border-radius: 0 !important;
 }
 
-/* Style the icon */
 .vfrc-icon {
     color: rgb(0, 159, 227) !important;
     margin-top: -40px !important;
     margin-right: -25px !important;
 }
 
-/* Style the assistant info title - override with "Dr. Barát" */
 .vfrc-assistant-info--title {
-    visibility: hidden; /* Hide original text */
+    visibility: hidden;
     position: relative;
 }
 
 .vfrc-assistant-info--title::before {
-    content: "Dr. Barát"; /* New text */
+    content: "Dr. Barát";
     visibility: visible;
     position: absolute;
     top: 0;
-    left: 50%; /* Centered */
-    transform: translateX(-50%); /* Center align horizontally */
-    color: rgb(0, 159, 227); /* Same blue as others */
-    font-size: 20px; /* Match other text size */
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(0, 159, 227);
+    font-size: 20px;
 }
 
-/* Style the assistant response message textbox */
 .vfrc-system-response .vfrc-message {
-    background-color: rgb(0, 159, 227) !important; /* Same blue */
-    color: #ffffff !important; /* White text */
+    background-color: rgb(0, 159, 227) !important;
+    color: #ffffff !important;
 }
 
-/* Style the user response message textbox */
 .vfrc-user-response .vfrc-message {
-    background-color: #ffffff !important; /* White */
-    color: #000000 !important; /* Black text */
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
